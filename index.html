@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+	<title>Books - Find books from Google Play Books</title>
+	<meta name="description" content="Find books from Google Play Books">
+	<link rel="icon" href="favicon.ico">
+	<meta itemprop="name" content="Books">
+	<meta itemprop="description" content="Find books from Google Play Books">
+	<meta itemprop="image" content="icons/icon-192x192.png">
+	<!-- See https://goo.gl/OOhYW5 -->
+	<link rel="manifest" href="manifest.json">
+	<!-- See https://goo.gl/qRE0vM -->
+	<meta name="theme-color" content="#ffffff">
+	<!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Books">
+	<!-- Add to homescreen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="Books">
+	<!-- Homescreen icons -->
+	<link rel="apple-touch-icon" href="icons/icon-48x48.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="icons/icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="96x96" href="icons/icon-96x96.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="icons/icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192x192.png">
+	<!-- Tile icon for Windows 8 (144x144 + tile color) -->
+	<meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-tap-highlight" content="no">
+	<!-- OpenGraph -->
+	<meta property="og:site_name" content="Books">
+	<meta property="og:url" content="https://liyasthomas.github.io/books">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Books">
+	<meta property="og:description" content="Find books from Google Play Books">
+	<meta property="og:image" content="icons/icon-144x144.png">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@liyasthomas">
+	<meta name="twitter:creator" content="@liyasthomas">
+	<meta name="twitter:url" content="https://liyasthomas.github.io/books">
+	<meta name="twitter:title" content="Books">
+	<meta name="twitter:description" content="Find books from Google Play Books">
+	<meta name="twitter:image" content="icons/icon-144x144.png">
+	<!-- Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<script>
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function() {
+				navigator.serviceWorker.register("sw.js").then(function(registration) {
+					console.log("ServiceWorker registration successful with scope: ", registration.scope);
+				}).catch(function(err) {
+					console.log("ServiceWorker registration failed: ", err);
+				});
+			});
+		}
+
+	</script>
+</head>
+
+<body>
+	<main id="main" class="main">
+		<header>
+			<h1 class="logo">
+				Books
+			</h1>
+			<input class="search" placeholder="Search books by name, author, genre...">
+		</header>
+		<section class="results">
+			<div class="list-book"></div>
+		</section>
+	</main>
+	<script src="index.js"></script>
+</body>
+
+</html>

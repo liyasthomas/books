@@ -1,0 +1,16 @@
+{
+	"name": "Books",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/liyasthomas/books.git"
+	},
+	"description": "Find books from Google Play Books",
+	"author": "liyasthomas",
+	"version": "0.0.1",
+	"devDependencies": {
+		"jshint": "^2.10.2"
+	},
+	"scripts": {
+		"test": "jshint travis.js"
+	}
+}
