@@ -29,13 +29,11 @@ When I wrote this, only God and I understood what I was doing. Now, only God kno
 
 :heart: **Lightweight and minimal**: Crafted with minimalistic UI design
 
-:electric_plug: **Real-time demo**: Pick a color, view a demo 
+:electric_plug: **Real-time demo**: Search books by name, author, genre etc...
 
-:zap: **Copy color codes to the clipboard**: Click on any color code to copy to clipboard!
+:zap: **Copy color codes to the clipboard**: Click on any book to view in Google Play Books!
 
-:sparkles: **Choose custom colors**: Choose your own colors
-
-:robot: **AI**: Generate combination colors for background and foreground
+:sparkles: **Choose custom colors**: Instant search results
 
 ---
 
