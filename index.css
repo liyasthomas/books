@@ -103,7 +103,9 @@ header {
 .results {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	flex-direction: column;
+	min-height: 100vh;
 	padding: 64px 0;
 }
 
@@ -111,6 +113,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	justify-content: center;
 	width: 70%;
 }
 

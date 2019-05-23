@@ -37,4 +37,4 @@ const updateFilter = ({
 }
 const debounce = (fn, time, to = null) =>
 	to ? clearTimeout(to) : (to = setTimeout(drawListBook, time))
-searchBooks.addEventListener('input', () => debounce(drawListBook, 1000))
+searchBooks.addEventListener('input', () => debounce(drawListBook, 2000))
