@@ -5,6 +5,15 @@
 	font-family: Montserrat, 'Roboto', 'Noto', sans-serif;
 }
 
+::placeholder {
+	color: #555555;
+}
+
+::selection {
+	background: #212121;
+	color: #ffffff;
+}
+
 @keyframes fadein {
 	from {
 		opacity: 0;
@@ -24,6 +33,7 @@ body {
 	user-select: none;
 	color: #212121;
 	animation: fadein .2s;
+	font-size: 18px;
 }
 
 a {
@@ -46,23 +56,23 @@ header {
 	background-color: #fff;
 	position: fixed;
 	top: 0;
+	padding: 16px 32px;
 }
 
 .logo {
-	padding: 0 32px;
 	font-weight: 900;
+	font-size: 32px;
 }
 
 .search {
 	width: 100%;
-	font-size: 18px;
-	padding: 16px;
+	font-size: 16px;
+	padding: 0 32px;
 	font-family: Montserrat, monospace;
 	text-overflow: ellipsis;
 }
 
 .results {
-	padding: 32px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
