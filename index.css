@@ -6,12 +6,12 @@
 }
 
 ::placeholder {
-	color: #aaa;
+	color: #ababb5;
 	text-transform: none;
 }
 
 ::selection {
-	background: #333;
+	background: #212126;
 	color: #fff;
 }
 
@@ -44,7 +44,7 @@ body {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	user-select: none;
-	color: #333;
+	color: #212126;
 	animation: fadein .2s;
 	font-size: 16px;
 	transition: all .2s;
@@ -130,13 +130,27 @@ header {
 	align-items: flex-start
 }
 
+.thumbnail {
+	border-radius: 16px;
+	margin-right: 32px;
+	animation: zoomin .5s;
+	transition: all .2s;
+	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+}
+
+.thumbnail:hover {
+	transform: scale(1.1);
+	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px rgba(0, 0, 0, .4));
+}
+
 .book-title {
 	display: -webkit-box;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 2;
 	font-weight: 900;
+	margin: 16px 0;
 }
 
 .book-authors {
@@ -145,28 +159,15 @@ header {
 	text-overflow: ellipsis;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
-	color: #aaa;
+	color: #ababb5;
 	cursor: pointer;
-}
-
-.thumbnail {
-	border-radius: 16px;
-	margin-right: 32px;
-	animation: zoomin .5s;
-	transition: all .2s;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
-}
-
-.thumbnail:hover {
-	transform: scale(1.1);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
 }
 
 .info {
 	display: inline-flex;
 	text-align: center;
 	padding: 8px 16px;
-	margin: 24px 0;
+	margin: 16px 0 0 0;
 	border-radius: 32px;
 	font-size: 12px;
 	color: #c471ed;

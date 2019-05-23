@@ -14,7 +14,7 @@ const drawListBook = async () => {
 		bookContainer.innerHTML = data.items
 			.map(({
 				volumeInfo
-			}) => `<div class='book'><a href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail}'></a><div class='book-info'><a href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");'>${volumeInfo.categories}</div></div></div>`)
+			}) => `<div class='book'><a href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail}' onerror='this.src="icons/logo.svg";'></a><div class='book-info'><a href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");'>${volumeInfo.categories}</div></div></div>`)
 			.join('')
 	} else {
 		bookContainer.innerHTML = 'Enter a search term'
@@ -37,4 +37,4 @@ const updateFilter = ({
 }
 const debounce = (fn, time, to = null) =>
 	to ? clearTimeout(to) : (to = setTimeout(drawListBook, time))
-searchBooks.addEventListener('input', () => debounce(drawListBook, 2000))
+searchBooks.addEventListener('input', () => debounce(drawListBook, 1000))
