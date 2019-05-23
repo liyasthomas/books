@@ -1,3 +1,8 @@
+:root {
+	--primary-color: #212126;
+	--secondary-color: #ababb5;
+}
+
 * {
 	box-sizing: border-box;
 	outline: 0;
@@ -6,12 +11,12 @@
 }
 
 ::placeholder {
-	color: #ababb5;
+	color: var(--secondary-color);
 	text-transform: none;
 }
 
 ::selection {
-	background: #212126;
+	background: var(--primary-color);
 	color: #fff;
 }
 
@@ -44,7 +49,7 @@ body {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	user-select: none;
-	color: #212126;
+	color: var(--primary-color);
 	animation: fadein .2s;
 	font-size: 16px;
 	transition: all .2s;
@@ -113,12 +118,24 @@ header {
 	width: 70%;
 }
 
+.loader {
+	display: flex;
+	width: 32px;
+	height: 32px;
+	margin-bottom: 32px;
+	background: var(--secondary-color);
+	border-radius: 50%;
+	animation: zoomin .5s infinite;
+}
+
 .prompt {
 	display: flex;
+	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	flex-grow: 1;
 	padding: 32px;
-	color: #ababb5;
+	color: var(--secondary-color);
 }
 
 .book {
@@ -163,7 +180,7 @@ header {
 	text-overflow: ellipsis;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
-	color: #ababb5;
+	color: var(--secondary-color);
 	cursor: pointer;
 }
 
@@ -175,7 +192,7 @@ header {
 	border-radius: 32px;
 	font-size: 12px;
 	color: #c471ed;
-	background: linear-gradient(120deg, rgba(18, 194, 233, .2), rgba(196, 113, 237, .1), rgba(246, 79, 89, .2));
+	background: linear-gradient(120deg, rgba(18, 194, 233, .2), rgba(196, 113, 237, .2), rgba(246, 79, 89, .2));
 	cursor: pointer;
 	transition: all .2s;
 }
