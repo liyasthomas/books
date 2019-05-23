@@ -103,18 +103,22 @@ header {
 .results {
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
-	min-height: 100vh;
 	padding: 64px 0;
 }
 
 .list-book {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
 	width: 70%;
+}
+
+.prompt {
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+	padding: 32px;
+	color: #ababb5;
 }
 
 .book {

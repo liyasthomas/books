@@ -9,15 +9,23 @@ const getBooks = async book => {
 }
 const drawListBook = async () => {
 	if (searchBooks.value != '') {
-		bookContainer.innerHTML = 'Searching..'
+		bookContainer.innerHTML = `<div class='prompt'>Searching...</div>`
 		const data = await getBooks(searchBooks.value)
-		bookContainer.innerHTML = data.items
-			.map(({
-				volumeInfo
-			}) => `<div class='book'><a href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail}' onerror='this.src="icons/logo.svg";'></a><div class='book-info'><a href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");'>${volumeInfo.categories}</div></div></div>`)
-			.join('')
+		if (data.error) {
+			bookContainer.innerHTML = `<div class='prompt'>Limit exceeded! Try after some time</div>`
+		} else if (data.totalItems == 0) {
+			bookContainer.innerHTML = `<div class='prompt'>No results, try a different term!</div>`
+		} else if (data.totalItems == undefined) {
+			bookContainer.innerHTML = `<div class='prompt'>Network problem!</div>`
+		} else {
+			bookContainer.innerHTML = data.items
+				.map(({
+					volumeInfo
+				}) => `<div class='book'><a href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail}' onerror='this.src="icons/logo.svg";'></a><div class='book-info'><a href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");'>${volumeInfo.categories}</div></div></div>`)
+				.join('')
+		}
 	} else {
-		bookContainer.innerHTML = 'Enter a search term'
+		bookContainer.innerHTML = `<div class='prompt'>Enter a search term</div>`
 	}
 }
 const updateFilter = ({
@@ -35,6 +43,7 @@ const updateFilter = ({
 	searchBooks.value = m + innerHTML
 	debounce(drawListBook, 1000)
 }
-const debounce = (fn, time, to = null) =>
+const debounce = (fn, time, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(drawListBook, time))
+}
 searchBooks.addEventListener('input', () => debounce(drawListBook, 1000))
