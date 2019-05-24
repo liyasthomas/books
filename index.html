@@ -65,25 +65,27 @@
 </head>
 
 <body>
+	<aside>
+		<div class="logo">
+			<a href="https://liyasthomas.github.io/books">
+				Books
+			</a>
+		</div>
+		<input id="search-box" class="search-box" placeholder="Search books">
+		<nav>
+			<ul>
+				<div class="subhead">DISCOVER</div>
+				<li><a class="nav current" href="#search-book"><span class="icon">֎</span>Browse</a></li>
+				<li><a class="nav" href="#foryou-book"><span class="icon">֎</span>For you</a></li>
+				<div class="subhead">LIBRARY</div>
+				<li><a class="nav" href="#fiction-book"><span class="icon">֎</span>Fiction</a></li>
+				<li><a class="nav" href="#poetry-book"><span class="icon">֎</span>Poetry</a></li>
+				<li><a class="nav" href="#fantasy-book"><span class="icon">֎</span>Fantasy</a></li>
+				<li><a class="nav" href="#romance-book"><span class="icon">֎</span>Romance</a></li>
+			</ul>
+		</nav>
+	</aside>
 	<main id="main" class="main">
-		<header>
-			<div class="logo">
-				<a href="https://liyasthomas.github.io/books">
-					Books
-				</a>
-			</div>
-			<input id="search" class="search" placeholder="Search books by name, author, genre...">
-			<a href="https://github.com/liyasthomas/books" target="_blank"><img src="icons/github.svg" alt="GitHub"></a>
-		</header>
-		<aside>
-			<div class="subhead">DISCOVER</div>
-			<button class="button" onclick="scrollInto('search')"><span class="icon">🔎</span>Search</button>
-			<div class="subhead">LIBRARY</div>
-			<button class="button" onclick="scrollInto('fiction')"><span class="icon">🌌</span>Fiction</button>
-			<button class="button" onclick="scrollInto('poetry')"><span class="icon">🔥</span>Poetry</button>
-			<button class="button" onclick="scrollInto('fantasy')"><span class="icon">💁‍♀️</span>Fantasy</button>
-			<button class="button" onclick="scrollInto('romance')"><span class="icon">💖</span>Romance</button>
-		</aside>
 		<article>
 			<section id="search-book" class="results">
 				<div class="flex">
@@ -91,6 +93,17 @@
 				</div>
 				<div class="list-book search-book">
 					<div class="prompt">Enter a search term</div>
+				</div>
+			</section>
+			<section id="foryou-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">For you</h1>
+				</div>
+				<div class="list-book foryou-book">
+					<div class='prompt'>
+						<div class="loader"></div>
+						<div>Loading...</div>
+					</div>
 				</div>
 			</section>
 			<section id="fiction-book" class="results">
