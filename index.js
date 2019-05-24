@@ -19,7 +19,7 @@ const drawChartBook = async (subject) => {
 		cbookContainer.innerHTML = cdata.items
 			.map(({
 				volumeInfo
-			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')}' onerror='this.src="icons/logo.svg";'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>${volumeInfo.categories}</div></div></div>`)
+			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')}' alt='cover'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>${volumeInfo.categories}</div></div></div>`)
 			.join('')
 	}
 }
@@ -37,7 +37,7 @@ const drawListBook = async () => {
 			bookContainer.innerHTML = data.items
 				.map(({
 					volumeInfo
-				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')}' onerror='this.src="icons/logo.svg";'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>${volumeInfo.categories}</div></div></div>`)
+				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><img class='thumbnail' src='${volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')}' alt='cover'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>${volumeInfo.categories}</div></div></div>`)
 				.join('')
 		}
 	} else {
