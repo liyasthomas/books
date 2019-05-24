@@ -68,6 +68,10 @@ a:hover,
 	-webkit-text-fill-color: transparent;
 }
 
+main {
+	padding: 64px 0;
+}
+
 header {
 	display: flex;
 	align-items: center;
@@ -109,7 +113,7 @@ header {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 64px 0;
+	padding: 32px 0;
 }
 
 .list-book {
@@ -202,12 +206,24 @@ header {
 	color: #fff;
 }
 
+.flex {
+	display: flex;
+	flex-grow: 1;
+	width: 70%;
+	padding: 0 32px;
+}
+
 @media (max-width: 800px) {
+
 	.list-book {
 		width: 100%;
 	}
 
 	.book {
+		width: 100%;
+	}
+
+	.flex {
 		width: 100%;
 	}
 }
