@@ -67,66 +67,77 @@
 <body>
 	<main id="main" class="main">
 		<header>
-			<a href="https://liyasthomas.github.io/books">
-				<div class="logo">
+			<div class="logo">
+				<a href="https://liyasthomas.github.io/books">
 					Books
-				</div>
-			</a>
+				</a>
+			</div>
 			<input id="search" class="search" placeholder="Search books by name, author, genre...">
 			<a href="https://github.com/liyasthomas/books" target="_blank"><img src="icons/github.svg" alt="GitHub"></a>
 		</header>
-		<section class="results">
-			<div class="flex">
-				<h1 class="book-title">Search</h1>
-			</div>
-			<div class="list-book search-book">
-				<div class="prompt">Enter a search term</div>
-			</div>
-		</section>
-		<section class="results">
-			<div class="flex">
-				<h1 class="book-title">Fiction</h1>
-			</div>
-			<div class="list-book fiction-book">
-				<div class='prompt'>
-					<div class="loader"></div>
-					<div>Loading...</div>
+		<aside>
+			<div class="subhead">DISCOVER</div>
+			<button class="button" onclick="scrollInto('search')"><span class="icon">🔎</span>Search</button>
+			<div class="subhead">LIBRARY</div>
+			<button class="button" onclick="scrollInto('fiction')"><span class="icon">🌌</span>Fiction</button>
+			<button class="button" onclick="scrollInto('poetry')"><span class="icon">🔥</span>Poetry</button>
+			<button class="button" onclick="scrollInto('fantasy')"><span class="icon">💁‍♀️</span>Fantasy</button>
+			<button class="button" onclick="scrollInto('romance')"><span class="icon">💖</span>Romance</button>
+		</aside>
+		<article>
+			<section id="search-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">Search</h1>
 				</div>
-			</div>
-		</section>
-		<section class="results">
-			<div class="flex">
-				<h1 class="book-title">Poetry</h1>
-			</div>
-			<div class="list-book poetry-book">
-				<div class='prompt'>
-					<div class="loader"></div>
-					<div>Loading...</div>
+				<div class="list-book search-book">
+					<div class="prompt">Enter a search term</div>
 				</div>
-			</div>
-		</section>
-		<section class="results">
-			<div class="flex">
-				<h1 class="book-title">Fantasy</h1>
-			</div>
-			<div class="list-book fantasy-book">
-				<div class='prompt'>
-					<div class="loader"></div>
-					<div>Loading...</div>
+			</section>
+			<section id="fiction-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">Fiction</h1>
 				</div>
-			</div>
-		</section>
-		<section class="results">
-			<div class="flex">
-				<h1 class="book-title">Romance</h1>
-			</div>
-			<div class="list-book romance-book">
-				<div class='prompt'>
-					<div class="loader"></div>
-					<div>Loading...</div>
+				<div class="list-book fiction-book">
+					<div class='prompt'>
+						<div class="loader"></div>
+						<div>Loading...</div>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<section id="poetry-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">Poetry</h1>
+				</div>
+				<div class="list-book poetry-book">
+					<div class='prompt'>
+						<div class="loader"></div>
+						<div>Loading...</div>
+					</div>
+				</div>
+			</section>
+			<section id="fantasy-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">Fantasy</h1>
+				</div>
+				<div class="list-book fantasy-book">
+					<div class='prompt'>
+						<div class="loader"></div>
+						<div>Loading...</div>
+					</div>
+				</div>
+			</section>
+			<section id="romance-book" class="results">
+				<div class="flex">
+					<h1 class="section-title">Romance</h1>
+				</div>
+				<div class="list-book romance-book">
+					<div class='prompt'>
+						<div class="loader"></div>
+						<div>Loading...</div>
+					</div>
+				</div>
+			</section>
+		</article>
 	</main>
 	<script src="index.js"></script>
 </body>

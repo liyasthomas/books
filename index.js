@@ -74,3 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	drawChartBook('fantasy')
 	drawChartBook('romance')
 })
+const scrollInto = (target) => {
+	document.getElementById(`${target}-book`).scrollIntoView({
+		behavior: 'smooth'
+	})
+}

@@ -70,6 +70,8 @@ a:hover,
 
 main {
 	padding: 64px 0;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 header {
@@ -80,24 +82,14 @@ header {
 	position: fixed;
 	top: 0;
 	padding: 16px 32px;
-	border-bottom: 1px solid #eee;
 	z-index: 2;
 }
 
 .logo {
 	font-weight: 900;
 	font-size: 24px;
-	color: #000;
-	background: linear-gradient(120deg, #12c2e9, #c471ed, #f64f59);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
-.logo:hover {
-	color: #000;
-	background: #000;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	width: 20%;
+	padding: 0 32px;
 }
 
 .search {
@@ -107,6 +99,56 @@ header {
 	font-family: Montserrat, monospace;
 	text-overflow: ellipsis;
 	text-transform: capitalize;
+}
+
+aside {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	padding: 0 32px;
+	width: 20%;
+	height: 100%;
+	overflow: auto;
+}
+
+.subhead {
+	padding: 32px;
+	color: var(--secondary-color);
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	padding: 16px 32px;
+	margin: 8px 0;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: #fff;
+	border-radius: 32px;
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.button .icon {
+	margin-right: 16px;
+}
+
+.button:hover {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+article {
+	width: 60%;
+	margin: 0 20%;
+}
+
+.section-title {
+	font-weight: 900;
+	font-size: 32px;
+	margin: 16px 0;
 }
 
 .results {
@@ -119,7 +161,6 @@ header {
 .list-book {
 	display: flex;
 	flex-wrap: wrap;
-	width: 70%;
 }
 
 .loader {
@@ -209,21 +250,21 @@ header {
 .flex {
 	display: flex;
 	flex-grow: 1;
-	width: 70%;
+	width: 100%;
 	padding: 0 32px;
 }
 
 @media (max-width: 800px) {
+	aside {
+		display: none;
+	}
 
-	.list-book {
+	article {
 		width: 100%;
+		margin: 0;
 	}
 
 	.book {
-		width: 100%;
-	}
-
-	.flex {
 		width: 100%;
 	}
 }
