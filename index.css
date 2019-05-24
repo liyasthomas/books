@@ -155,6 +155,7 @@ article {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	flex-grow: 1;
 	padding: 32px 0;
 }
 
@@ -255,6 +256,11 @@ article {
 }
 
 @media (max-width: 800px) {
+	.logo {
+		width: auto;
+		padding: 0;
+	}
+
 	aside {
 		display: none;
 	}
