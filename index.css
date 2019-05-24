@@ -12,7 +12,6 @@
 
 ::placeholder {
 	color: var(--secondary-color);
-	text-transform: none;
 	text-overflow: ellipsis;
 }
 
@@ -34,12 +33,12 @@
 @keyframes zoomin {
 	from {
 		opacity: 0;
-		transform: scale(0);
+		transform: translate(0, 0) scale(0);
 	}
 
 	to {
 		opacity: 1;
-		transform: scale(1);
+		transform: translate(0, -64px) scale(1);
 	}
 }
 
@@ -67,7 +66,7 @@ a {
 
 a.link:hover,
 .book-authors:hover {
-	color: #00d2d6;
+	color: #000;
 	transition: all .2s;
 }
 
@@ -90,7 +89,6 @@ ul {
 	margin: 32px 0;
 	padding: 16px 32px;
 	text-overflow: ellipsis;
-	text-transform: capitalize;
 	background-color: #eee;
 	border-radius: 32px;
 }
@@ -124,6 +122,7 @@ aside {
 }
 
 .nav .icon {
+	font-size: 16px;
 	margin-right: 16px;
 }
 
@@ -153,7 +152,6 @@ article {
 	align-items: center;
 	flex-direction: column;
 	flex-grow: 1;
-	padding: 32px 0;
 }
 
 .list-book {
@@ -184,7 +182,9 @@ article {
 .book {
 	display: flex;
 	padding: 32px;
-	width: 50%;
+	width: calc(50% - 32px);
+	border-radius: 32px;
+	margin: 16px;
 }
 
 .book-info {
@@ -200,10 +200,11 @@ article {
 	animation: zoomin .5s;
 	transition: all .2s;
 	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	transform: translate(0, -64px);
 }
 
 .thumbnail:hover {
-	transform: scale(1.1);
+	transform: translate(0, -64px) scale(1.1);
 	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px rgba(0, 0, 0, .4));
 }
 
@@ -231,27 +232,21 @@ article {
 	display: inline-flex;
 	text-align: center;
 	padding: 8px 16px;
-	margin: 32px 0;
+	margin: 16px 0;
 	border-radius: 32px;
 	font-size: 12px;
 	font-weight: 600;
-	background: #eee;
 	cursor: pointer;
 	transition: all .2s;
-}
-
-.info:hover {
-	background-color: var(--primary-color);
-	color: #fff;
 }
 
 .flex {
 	display: flex;
 	width: 100%;
-	padding: 0 32px;
+	padding: 32px 16px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
 	aside {
 		display: none;
 	}
