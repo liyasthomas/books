@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 let mainNavLinks = document.querySelectorAll('.nav')
 window.addEventListener('scroll', event => {
-	let fromTop = window.scrollY + 128
+	let fromTop = window.scrollY + 200
 	mainNavLinks.forEach(({
 		hash,
 		classList
@@ -98,3 +98,14 @@ const getRandomColor = () => {
 	color += '1A'
 	return color
 }
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
+const switchTheme = ({
+	target
+}) => {
+	if (target.checked) {
+		document.documentElement.setAttribute('data-theme', 'dark')
+	} else {
+		document.documentElement.setAttribute('data-theme', 'light')
+	}
+}
+toggleSwitch.addEventListener('change', switchTheme, false)

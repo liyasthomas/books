@@ -1,6 +1,17 @@
 :root {
-	--primary-color: rgba(0, 0, 0, .9);
+	--font-color: rgba(0, 0, 0, .9);
+	--bg-color: #fff;
+	--primary-color: rgba(0, 0, 0, 1);
 	--secondary-color: rgba(0, 0, 0, .4);
+	--light-bg-color: rgba(0, 0, 0, .1);
+}
+
+[data-theme="dark"] {
+	--font-color: rgba(255, 255, 255, .9);
+	--bg-color: #090821;
+	--primary-color: rgba(255, 255, 255, 1);
+	--secondary-color: rgba(255, 255, 255, .4);
+	--light-bg-color: rgba(255, 255, 255, .2);
 }
 
 * {
@@ -13,11 +24,12 @@
 ::placeholder {
 	color: var(--secondary-color);
 	text-overflow: ellipsis;
+	transition: all .2s;
 }
 
 ::selection {
 	background: var(--primary-color);
-	color: #fff;
+	color: var(--bg-color);
 }
 
 @keyframes fadein {
@@ -55,7 +67,8 @@ body {
 	user-select: none;
 	font-size: 16px;
 	font-weight: 500;
-	color: var(--primary-color);
+	color: var(--font-color);
+	background-color: var(--bg-color);
 	animation: fadein .2s;
 	transition: all .2s;
 }
@@ -68,7 +81,7 @@ a {
 a.link:hover,
 .book-authors:hover,
 .info:hover {
-	color: #000;
+	color: var(--primary-color);
 	transition: all .2s;
 }
 
@@ -91,8 +104,11 @@ ul {
 	margin: 32px 0;
 	padding: 16px 32px;
 	text-overflow: ellipsis;
-	background-color: #eee;
+	background-color: ;
 	border-radius: 32px;
+	background-color: var(--light-bg-color);
+	color: var(--font-color);
+	transition: all .2s;
 }
 
 aside {
@@ -104,12 +120,15 @@ aside {
 	height: 100%;
 	overflow: auto;
 	font-size: 14px;
+	background-color: var(--bg-color);
+	transition: all .2s;
 }
 
 .subhead {
 	padding: 32px;
 	color: var(--secondary-color);
 	font-weight: 600;
+	transition: all .2s;
 }
 
 .nav {
@@ -118,7 +137,7 @@ aside {
 	padding: 16px 32px;
 	margin: 8px 0;
 	font-weight: 600;
-	background-color: #fff;
+	background-color: var(--bg-color);
 	border-radius: 32px;
 	transition: all .2s;
 }
@@ -128,13 +147,78 @@ aside {
 }
 
 .nav.current {
-	color: #fff;
+	color: var(--bg-color);
 	background: var(--primary-color);
-	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .4));
+	filter: drop-shadow(0 4px 8px var(--secondary-color));
 }
 
 .nav:hover {
-	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
+	filter: drop-shadow(0 2px 4px var(--light-bg-color));
+}
+
+.spacer {
+	display: flex;
+	flex-grow: 1;
+}
+
+.theme-switch {
+	display: flex;
+	height: 16px;
+	position: relative;
+	width: 32px;
+	margin: 32px 0 0 32px;
+}
+
+.theme-switch input {
+	display: none;
+}
+
+.theme-switch::after {
+	content: 'Night mode';
+	white-space: pre;
+	margin-left: 48px;
+	color: var(--secondary-color);
+	cursor: pointer;
+}
+
+.slider {
+	background-color: var(--light-bg-color);
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-radius: 8px;
+	transition: all .2s;
+}
+
+.slider:hover:before {
+	background: var(--light-bg-color);
+}
+
+.slider:active:before {
+	background: var(--light-bg-color);
+}
+
+.slider:before {
+	background-color: var(--secondary-color);
+	bottom: 0;
+	content: "";
+	height: 16px;
+	left: 0;
+	position: absolute;
+	width: 16px;
+	border-radius: 8px;
+	transition: all .2s;
+}
+
+input:checked + .slider {
+	background-color: var(--light-bg-color);
+}
+
+input:checked + .slider:before {
+	transform: translateX(16px);
 }
 
 article {
@@ -169,6 +253,7 @@ article {
 	background: var(--secondary-color);
 	border-radius: 50%;
 	animation: fadein 1s infinite;
+	transition: all .2s;
 }
 
 .prompt {
@@ -179,6 +264,7 @@ article {
 	flex-grow: 1;
 	padding: 32px;
 	color: var(--secondary-color);
+	transition: all .2s;
 }
 
 .book {
@@ -199,14 +285,14 @@ article {
 	border-radius: 16px;
 	margin-right: 32px;
 	animation: zoomin .5s;
-	transition: all .2s;
-	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px var(--light-bg-color));
 	transform: translate(0, -64px);
+	transition: all .2s;
 }
 
 .thumbnail:hover {
 	transform: translate(0, -64px) scale(1.1);
-	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px rgba(0, 0, 0, .4));
+	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px var(--secondary-color));
 }
 
 .book-title {
@@ -239,7 +325,6 @@ article {
 	font-weight: 600;
 	border-radius: 32px;
 	cursor: pointer;
-	transition: all .2s;
 }
 
 .flex {
@@ -254,7 +339,6 @@ article {
 		top: 0;
 		padding: 16px;
 		width: 100%;
-		background-color: #fff;
 		z-index: 2;
 	}
 
