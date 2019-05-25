@@ -5,10 +5,10 @@ const getBooks = async book => {
 	const data = await response.json()
 	return data
 }
-const drawChartBook = async (subject) => {
+const drawChartBook = async (subject, startIndex = 0) => {
 	let cbookContainer = document.querySelector(`.${subject}`)
 	cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div><div>Loading...</div></div>`
-	const cdata = await getBooks(`subject:${subject}&maxResults=6&orderBy=newest`)
+	const cdata = await getBooks(`subject:${subject}&startIndex=${startIndex}&maxResults=6&orderBy=newest`)
 	if (cdata.error) {
 		cbookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Limit exceeded! Try after some time</div>`
 	} else if (cdata.totalItems == 0) {
@@ -26,7 +26,7 @@ const drawChartBook = async (subject) => {
 const drawListBook = async () => {
 	if (searchBooks.value != '') {
 		bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div><div>Searching...</div></div>`
-		const data = await getBooks(searchBooks.value)
+		const data = await getBooks(`${searchBooks.value}&maxResults=6`)
 		if (data.error) {
 			bookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Limit exceeded! Try after some time</div>`
 		} else if (data.totalItems == 0) {
@@ -109,3 +109,29 @@ const switchTheme = ({
 	}
 }
 toggleSwitch.addEventListener('change', switchTheme, false)
+let startIndex = 0
+const next = (subject) => {
+	if (startIndex < 0) {
+		startIndex = 0
+	}
+	startIndex += 6
+	if (startIndex >= 0) {
+		document.getElementById(`${subject}-prev`).style.display = 'inline-flex'
+		drawChartBook(subject, startIndex)
+	} else {
+		document.getElementById(`${subject}-prev`).style.display = 'none'
+	}
+}
+const prev = (subject) => {
+	if (startIndex < 0) {
+		startIndex = 0
+	} else {
+		startIndex -= 6
+	}
+	if (startIndex >= 0) {
+		document.getElementById(`${subject}-prev`).style.display = 'inline-flex'
+		drawChartBook(subject, startIndex)
+	} else {
+		document.getElementById(`${subject}-prev`).style.display = 'none'
+	}
+}

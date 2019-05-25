@@ -76,6 +76,7 @@
 			<ul>
 				<li class="subhead">DISCOVER</li>
 				<li><a class="nav current" href="#search"><span class="icon">❤</span>Browse</a></li>
+				<li><a class="nav" href="#foryou"><span class="icon">❤</span>For you</a></li>
 				<li class="subhead">LIBRARY</li>
 				<li><a class="nav" href="#fiction"><span class="icon">⬤</span>Fiction</a></li>
 				<li><a class="nav" href="#poetry"><span class="icon">⬤</span>Poetry</a></li>
@@ -99,9 +100,48 @@
 					<div class="prompt">Enter a search term</div>
 				</div>
 			</section>
+			<section id="foryou" class="results">
+				<div class="flex">
+					<h1 class="section-title">For you</h1>
+				</div>
+				<div class="list-book foryou">
+					<div class="book category" style="background: linear-gradient(120deg, #fc00ff, #00dbde);">
+						<div class="book-info">
+							<a class="link" href="">
+								<h3 class="book-title">Daily Top 100</h3>
+							</a>
+						</div>
+					</div>
+					<div class="book category" style="background: linear-gradient(120deg, #00c6ff, #0072ff);">
+						<div class="book-info">
+							<a class="link" href="">
+								<h3 class="book-title">New releases</h3>
+							</a>
+						</div>
+					</div>
+					<div class="book category" style="background: linear-gradient(120deg, #0099f7, #f11712);">
+						<div class="book-info">
+							<a class="link" href="">
+								<h3 class="book-title">Top books</h3>
+							</a>
+						</div>
+					</div>
+					<div class="book category" style="background: linear-gradient(120deg, #12c2e9, #c471ed, #f64f59);">
+						<div class="book-info">
+							<a class="link" href="">
+								<h3 class="book-title">Bestsellers</h3>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
 			<section id="fiction" class="results">
 				<div class="flex">
 					<h1 class="section-title">Fiction</h1>
+					<div>
+						<button id="fiction-prev" class="pagination prev" onclick="prev('fiction')">⮜</button>
+						<button id="fiction-next" class="pagination next" onclick="next('fiction')">⮞</button>
+					</div>
 				</div>
 				<div class="list-book fiction">
 					<div class='prompt'>
@@ -113,6 +153,10 @@
 			<section id="poetry" class="results">
 				<div class="flex">
 					<h1 class="section-title">Poetry</h1>
+					<div>
+						<button id="poetry-prev" class="pagination prev" onclick="prev('poetry')">⮜</button>
+						<button id="poetry-next" class="pagination next" onclick="next('poetry')">⮞</button>
+					</div>
 				</div>
 				<div class="list-book poetry">
 					<div class='prompt'>
@@ -124,6 +168,10 @@
 			<section id="fantasy" class="results">
 				<div class="flex">
 					<h1 class="section-title">Fantasy</h1>
+					<div>
+						<button id="fantasy-prev" class="pagination prev" onclick="prev('fantasy')">⮜</button>
+						<button id="fantasy-next" class="pagination next" onclick="next('fantasy')">⮞</button>
+					</div>
 				</div>
 				<div class="list-book fantasy">
 					<div class='prompt'>
@@ -135,6 +183,10 @@
 			<section id="romance" class="results">
 				<div class="flex">
 					<h1 class="section-title">Romance</h1>
+					<div>
+						<button id="romance-prev" class="pagination prev" onclick="prev('romance')">⮜</button>
+						<button id="romance-next" class="pagination next" onclick="next('romance')">⮞</button>
+					</div>
 				</div>
 				<div class="list-book romance">
 					<div class='prompt'>
@@ -145,7 +197,7 @@
 			</section>
 			<footer id="footer" class="footer">
 				<div class='prompt'>
-					<a href="https://github.com/liyasthomas/books" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub"></a>
+					<a class="pagination" href="https://github.com/liyasthomas/books" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub"></a>
 				</div>
 			</footer>
 		</article>

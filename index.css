@@ -8,7 +8,7 @@
 
 [data-theme="dark"] {
 	--font-color: rgba(255, 255, 255, .9);
-	--bg-color: #090821;
+	--bg-color: #090b28;
 	--primary-color: rgba(255, 255, 255, 1);
 	--secondary-color: rgba(255, 255, 255, .4);
 	--light-bg-color: rgba(255, 255, 255, .2);
@@ -19,6 +19,15 @@
 	outline: 0;
 	border: 0;
 	font-family: Montserrat, 'Roboto', 'Noto', sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--light-bg-color);
 }
 
 ::placeholder {
@@ -149,11 +158,11 @@ aside {
 .nav.current {
 	color: var(--bg-color);
 	background: var(--primary-color);
-	filter: drop-shadow(0 4px 8px var(--secondary-color));
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .4));
 }
 
 .nav:hover {
-	filter: drop-shadow(0 2px 4px var(--light-bg-color));
+	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
 }
 
 .spacer {
@@ -285,14 +294,14 @@ article {
 	border-radius: 16px;
 	margin-right: 32px;
 	animation: zoomin .5s;
-	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px var(--light-bg-color));
+	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
 	transform: translate(0, -64px);
 	transition: all .2s;
 }
 
 .thumbnail:hover {
 	transform: translate(0, -64px) scale(1.1);
-	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px var(--secondary-color));
+	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px rgba(0, 0, 0, .4));
 }
 
 .book-title {
@@ -327,10 +336,37 @@ article {
 	cursor: pointer;
 }
 
+.category {
+	height: 180px;
+	color: var(--bg-color);
+	border-radius: 16px;
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	transition: all .2s;
+}
+
 .flex {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	width: 100%;
 	padding: 32px 16px;
+}
+
+.pagination {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	width: 46px;
+	font-size: 20px;
+	border-radius: 50%;
+	background-color: var(--light-bg-color);
+	color: var(--font-color);
+	cursor: pointer;
+}
+
+.prev {
+	display: none;
 }
 
 @media (max-width: 1024px) {
