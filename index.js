@@ -25,6 +25,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
 }
 const drawListBook = async () => {
 	if (searchBooks.value != '') {
+		bookContainer.style.display = 'flex'
 		bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`
 		const data = await getBooks(`${searchBooks.value}&maxResults=6`)
 		if (data.error) {
@@ -41,7 +42,7 @@ const drawListBook = async () => {
 				.join('')
 		}
 	} else {
-		bookContainer.innerHTML = `<div class='prompt'>Enter a search term</div>`
+		bookContainer.style.display = 'none'
 	}
 }
 const updateFilter = ({
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 let mainNavLinks = document.querySelectorAll('.nav')
 window.addEventListener('scroll', event => {
-	let fromTop = window.scrollY + 200
+	let fromTop = window.scrollY + 64
 	mainNavLinks.forEach(({
 		hash,
 		classList
