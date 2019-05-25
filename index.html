@@ -71,12 +71,14 @@
 				Books
 			</a>
 		</div>
-		<input id="search-box" class="search-box" placeholder="Search books" aria-label="Search books">
 		<nav>
 			<ul>
 				<li class="subhead">DISCOVER</li>
-				<li><a class="nav current" href="#search"><span class="icon">❤</span>Browse</a></li>
+				<li><a class="nav current" href="#search"><span class="icon">❤</span>Search</a></li>
 				<li><a class="nav" href="#foryou"><span class="icon">❤</span>For you</a></li>
+				<li><a class="nav" href="#love"><span class="icon">❤</span>Daily Top 100</a></li>
+				<li><a class="nav" href="#feminism"><span class="icon">❤</span>New releases</a></li>
+				<li><a class="nav" href="#inspirational"><span class="icon">❤</span>Bestsellers</a></li>
 				<li class="subhead">LIBRARY</li>
 				<li><a class="nav" href="#fiction"><span class="icon">⬤</span>Fiction</a></li>
 				<li><a class="nav" href="#poetry"><span class="icon">⬤</span>Poetry</a></li>
@@ -94,7 +96,7 @@
 		<article>
 			<section id="search" class="results">
 				<div class="flex">
-					<h1 class="section-title">Search</h1>
+					<input id="search-box" class="search-box" placeholder="Search books by name, author, genre etc..." aria-label="Search books">
 				</div>
 				<div class="list-book search">
 					<div class="prompt">Enter a search term</div>
@@ -105,33 +107,62 @@
 					<h1 class="section-title">For you</h1>
 				</div>
 				<div class="list-book foryou">
-					<div class="book category" style="background: linear-gradient(120deg, #fc00ff, #00dbde);">
+					<div class="book category">
 						<div class="book-info">
-							<a class="link" href="">
-								<h3 class="book-title">Daily Top 100</h3>
-							</a>
+							<h1 class="section-title">Daily Top 100</h1>
 						</div>
 					</div>
-					<div class="book category" style="background: linear-gradient(120deg, #00c6ff, #0072ff);">
+					<div class="book category">
 						<div class="book-info">
-							<a class="link" href="">
-								<h3 class="book-title">New releases</h3>
-							</a>
+							<h1 class="section-title">New releases</h1>
 						</div>
 					</div>
-					<div class="book category" style="background: linear-gradient(120deg, #0099f7, #f11712);">
+					<div class="book category">
 						<div class="book-info">
-							<a class="link" href="">
-								<h3 class="book-title">Top books</h3>
-							</a>
+							<h1 class="section-title">Bestsellers</h1>
 						</div>
 					</div>
-					<div class="book category" style="background: linear-gradient(120deg, #12c2e9, #c471ed, #f64f59);">
-						<div class="book-info">
-							<a class="link" href="">
-								<h3 class="book-title">Bestsellers</h3>
-							</a>
-						</div>
+				</div>
+			</section>
+			<section id="love" class="results">
+				<div class="flex">
+					<h1 class="section-title">Daily Top 100</h1>
+					<div>
+						<button id="love-prev" class="pagination prev" onclick="prev('love')">⮜</button>
+						<button id="love-next" class="pagination next" onclick="next('love')">⮞</button>
+					</div>
+				</div>
+				<div class="list-book love categories">
+					<div class='prompt'>
+						<div class="loader"></div>
+					</div>
+				</div>
+			</section>
+			<section id="feminism" class="results">
+				<div class="flex">
+					<h1 class="section-title">New releases</h1>
+					<div>
+						<button id="feminism-prev" class="pagination prev" onclick="prev('feminism')">⮜</button>
+						<button id="feminism-next" class="pagination next" onclick="next('feminism')">⮞</button>
+					</div>
+				</div>
+				<div class="list-book feminism categories">
+					<div class='prompt'>
+						<div class="loader"></div>
+					</div>
+				</div>
+			</section>
+			<section id="inspirational" class="results">
+				<div class="flex">
+					<h1 class="section-title">Bestsellers</h1>
+					<div>
+						<button id="inspirational-prev" class="pagination prev" onclick="prev('inspirational')">⮜</button>
+						<button id="inspirational-next" class="pagination next" onclick="next('inspirational')">⮞</button>
+					</div>
+				</div>
+				<div class="list-book inspirational categories">
+					<div class='prompt'>
+						<div class="loader"></div>
 					</div>
 				</div>
 			</section>
@@ -146,7 +177,6 @@
 				<div class="list-book fiction">
 					<div class='prompt'>
 						<div class="loader"></div>
-						<div>Loading...</div>
 					</div>
 				</div>
 			</section>
@@ -161,7 +191,6 @@
 				<div class="list-book poetry">
 					<div class='prompt'>
 						<div class="loader"></div>
-						<div>Loading...</div>
 					</div>
 				</div>
 			</section>
@@ -176,7 +205,6 @@
 				<div class="list-book fantasy">
 					<div class='prompt'>
 						<div class="loader"></div>
-						<div>Loading...</div>
 					</div>
 				</div>
 			</section>
@@ -191,7 +219,6 @@
 				<div class="list-book romance">
 					<div class='prompt'>
 						<div class="loader"></div>
-						<div>Loading...</div>
 					</div>
 				</div>
 			</section>

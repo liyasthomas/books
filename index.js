@@ -7,14 +7,14 @@ const getBooks = async book => {
 }
 const drawChartBook = async (subject, startIndex = 0) => {
 	let cbookContainer = document.querySelector(`.${subject}`)
-	cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div><div>Loading...</div></div>`
+	cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`
 	const cdata = await getBooks(`subject:${subject}&startIndex=${startIndex}&maxResults=6&orderBy=newest`)
 	if (cdata.error) {
-		cbookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Limit exceeded! Try after some time</div>`
+		cbookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`
 	} else if (cdata.totalItems == 0) {
-		cbookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>No results, try a different term!</div>`
+		cbookContainer.innerHTML = `<div class='prompt'>ツ No results, try a different term!</div>`
 	} else if (cdata.totalItems == undefined) {
-		cbookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Network problem!</div>`
+		cbookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`
 	} else {
 		cbookContainer.innerHTML = cdata.items
 			.map(({
@@ -25,14 +25,14 @@ const drawChartBook = async (subject, startIndex = 0) => {
 }
 const drawListBook = async () => {
 	if (searchBooks.value != '') {
-		bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div><div>Searching...</div></div>`
+		bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`
 		const data = await getBooks(`${searchBooks.value}&maxResults=6`)
 		if (data.error) {
-			bookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Limit exceeded! Try after some time</div>`
+			bookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`
 		} else if (data.totalItems == 0) {
-			bookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>No results, try a different term!</div>`
+			bookContainer.innerHTML = `<div class='prompt'>ツ No results, try a different term!</div>`
 		} else if (data.totalItems == undefined) {
-			bookContainer.innerHTML = `<div class='prompt'><div class='prompt'>ツ</div>Network problem!</div>`
+			bookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`
 		} else {
 			bookContainer.innerHTML = data.items
 				.map(({
@@ -69,6 +69,9 @@ searchBooks.addEventListener('input', () => {
 	debounce(drawListBook, 1000)
 })
 document.addEventListener('DOMContentLoaded', () => {
+	drawChartBook('love')
+	drawChartBook('feminism')
+	drawChartBook('inspirational')
 	drawChartBook('fiction')
 	drawChartBook('poetry')
 	drawChartBook('fantasy')
@@ -95,7 +98,7 @@ const getRandomColor = () => {
 	for (let i = 0; i < 6; i++) {
 		color += letters[Math.floor(Math.random() * 16)]
 	}
-	color += '1A'
+	color += '40'
 	return color
 }
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')

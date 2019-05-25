@@ -23,11 +23,17 @@
 
 ::-webkit-scrollbar {
 	width: 0;
+	height: 5px;
 	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
 	background: var(--light-bg-color);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--secondary-color);
 }
 
 ::placeholder {
@@ -111,11 +117,10 @@ ul {
 	font-size: 14px;
 	font-weight: 600;
 	margin: 32px 0;
-	padding: 16px 32px;
+	padding: 16px 0;
 	text-overflow: ellipsis;
-	background-color: ;
+	background-color: transparent;
 	border-radius: 32px;
-	background-color: var(--light-bg-color);
 	color: var(--font-color);
 	transition: all .2s;
 }
@@ -231,8 +236,8 @@ input:checked + .slider:before {
 }
 
 article {
-	width: 60%;
-	margin: 0 auto;
+	width: 80%;
+	margin-left: 20%;
 }
 
 .section-title {
@@ -267,11 +272,8 @@ article {
 
 .prompt {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
 	flex-grow: 1;
-	padding: 32px;
+	padding: 16px;
 	color: var(--secondary-color);
 	transition: all .2s;
 }
@@ -279,7 +281,7 @@ article {
 .book {
 	display: flex;
 	padding: 32px;
-	width: calc(50% - 32px);
+	width: calc(33% - 32px);
 	border-radius: 32px;
 	margin: 16px;
 }
@@ -301,7 +303,7 @@ article {
 
 .thumbnail:hover {
 	transform: translate(0, -64px) scale(1.1);
-	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 16px rgba(0, 0, 0, .4));
+	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
 }
 
 .book-title {
@@ -336,12 +338,42 @@ article {
 	cursor: pointer;
 }
 
+.categories {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-grow: 1;
+	overflow: scroll;
+	padding-top: 32px;
+}
+
+.categories .book {
+	white-space: nowrap;
+	width: 100%;
+}
+
 .category {
-	height: 180px;
-	color: var(--bg-color);
+	height: 25vh;
+	color: #fff;
 	border-radius: 16px;
-	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
+	background-size: cover;
+	background-position: center center;
 	transition: all .2s;
+}
+
+.category:nth-child(1) {
+	background-color: #000000;
+	background-image: url("icons/Bullseye-Gradient.svg");
+}
+
+.category:nth-child(2) {
+	background-color: #ff9d00;
+	background-image: url("icons/Rainbow-Vortex.svg");
+}
+
+.category:nth-child(3) {
+	background-color: #ff0000;
+	background-image: url("icons/Quantum-Gradient.svg");
 }
 
 .flex {
@@ -360,9 +392,16 @@ article {
 	width: 46px;
 	font-size: 20px;
 	border-radius: 50%;
+	margin: 0 16px;
 	background-color: var(--light-bg-color);
 	color: var(--font-color);
 	cursor: pointer;
+	transition: all .2s;
+}
+
+.pagination:hover {
+	background-color: var(--font-color);
+	color: var(--bg-color);
 }
 
 .prev {
