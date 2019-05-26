@@ -105,12 +105,6 @@ ul {
 	padding: 0;
 }
 
-.logo {
-	font-weight: 900;
-	font-size: 24px;
-	padding: 0 32px;
-}
-
 aside {
 	position: fixed;
 	display: flex;
@@ -122,6 +116,12 @@ aside {
 	font-size: 14px;
 	background-color: var(--bg-color);
 	transition: all .2s;
+}
+
+.logo {
+	font-weight: 900;
+	font-size: 24px;
+	padding: 0 32px;
 }
 
 .subhead {
@@ -224,16 +224,55 @@ article {
 	margin-left: 20%;
 }
 
+.results {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 32px;
+}
+
+.search-box {
+	display: flex;
+	flex-grow: 1;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 16px 0;
+	text-overflow: ellipsis;
+	background-color: transparent;
+	color: var(--font-color);
+	transition: all .2s;
+}
+
 .section-title {
 	font-weight: 900;
 	font-size: 32px;
 	margin: 16px 0;
 }
 
-.results {
-	display: flex;
-	flex-grow: 1;
-	flex-direction: column;
+.pagination {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	width: 46px;
+	font-size: 20px;
+	border-radius: 50%;
+	background-color: var(--light-bg-color);
+	color: var(--font-color);
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.pagination:hover {
+	background-color: var(--font-color);
+	color: var(--bg-color);
 }
 
 .loader {
@@ -254,6 +293,39 @@ article {
 	transition: all .2s;
 }
 
+.category {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	height: 25vh;
+	margin: 16px;
+	color: #fff;
+	border-radius: 16px;
+	filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
+	background-size: cover;
+	background-position: center center;
+	transition: all .2s;
+}
+
+.category:hover {
+	filter: drop-shadow(0 16px 16px rgba(0, 0, 0, .4));
+}
+
+.category:nth-child(1) {
+	background-color: #000000;
+	background-image: url("icons/Bullseye-Gradient.svg");
+}
+
+.category:nth-child(2) {
+	background-color: #ff9d00;
+	background-image: url("icons/Rainbow-Vortex.svg");
+}
+
+.category:nth-child(3) {
+	background-color: #ff0000;
+	background-image: url("icons/Quantum-Gradient.svg");
+}
+
 .list-book {
 	display: flex;
 	flex-wrap: wrap;
@@ -267,6 +339,18 @@ article {
 	padding: 32px;
 	margin: 16px;
 	border-radius: 32px;
+}
+
+.categories {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	overflow: auto;
+}
+
+.categories .book {
+	white-space: nowrap;
+	width: 100%;
 }
 
 .book-info {
@@ -319,90 +403,6 @@ article {
 	font-weight: 600;
 	border-radius: 32px;
 	cursor: pointer;
-}
-
-.categories {
-	display: flex;
-	flex-wrap: nowrap;
-	width: 100%;
-	overflow: auto;
-}
-
-.categories .book {
-	white-space: nowrap;
-	width: 100%;
-}
-
-.category {
-	display: flex;
-	align-items: center;
-	flex: 1;
-	height: 25vh;
-	margin: 16px;
-	color: #fff;
-	border-radius: 16px;
-	filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
-	background-size: cover;
-	background-position: center center;
-	transition: all .2s;
-}
-
-.category:hover {
-	filter: drop-shadow(0 16px 16px rgba(0, 0, 0, .4));
-}
-
-.category:nth-child(1) {
-	background-color: #000000;
-	background-image: url("icons/Bullseye-Gradient.svg");
-}
-
-.category:nth-child(2) {
-	background-color: #ff9d00;
-	background-image: url("icons/Rainbow-Vortex.svg");
-}
-
-.category:nth-child(3) {
-	background-color: #ff0000;
-	background-image: url("icons/Quantum-Gradient.svg");
-}
-
-.flex {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	padding: 32px;
-}
-
-.search-box {
-	display: flex;
-	flex-grow: 1;
-	font-size: 16px;
-	font-weight: 600;
-	padding: 16px 0;
-	text-overflow: ellipsis;
-	background-color: transparent;
-	color: var(--font-color);
-	transition: all .2s;
-}
-
-.pagination {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	height: 46px;
-	width: 46px;
-	font-size: 20px;
-	border-radius: 50%;
-	background-color: var(--light-bg-color);
-	color: var(--font-color);
-	cursor: pointer;
-	transition: all .2s;
-}
-
-.pagination:hover {
-	background-color: var(--font-color);
-	color: var(--bg-color);
 }
 
 .search,
