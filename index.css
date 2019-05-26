@@ -7,11 +7,11 @@
 }
 
 [data-theme="dark"] {
-	--font-color: rgba(255, 255, 255, .9);
+	--font-color: rgba(255, 255, 255, 1);
 	--bg-color: #090b28;
 	--primary-color: rgba(255, 255, 255, 1);
 	--secondary-color: rgba(255, 255, 255, .5);
-	--light-bg-color: rgba(255, 255, 255, .2);
+	--light-bg-color: rgba(255, 255, 255, .1);
 }
 
 * {
@@ -23,16 +23,16 @@
 
 ::-webkit-scrollbar {
 	width: 0;
-	height: 5px;
+	height: 3px;
 	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--light-bg-color);
+	background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--light-bg-color), rgba(0, 0, 0, 0));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--secondary-color);
+	background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--secondary-color), rgba(0, 0, 0, 0));
 }
 
 ::placeholder {
@@ -325,7 +325,7 @@ article {
 	display: flex;
 	flex-wrap: nowrap;
 	width: 100%;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .categories .book {
@@ -334,8 +334,10 @@ article {
 }
 
 .category {
-	height: 25vh;
+	display: flex;
+	align-items: center;
 	flex: 1;
+	height: 25vh;
 	margin: 16px;
 	color: #fff;
 	border-radius: 16px;
@@ -343,6 +345,10 @@ article {
 	background-size: cover;
 	background-position: center center;
 	transition: all .2s;
+}
+
+.category:hover {
+	filter: drop-shadow(0 16px 16px rgba(0, 0, 0, .4));
 }
 
 .category:nth-child(1) {

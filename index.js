@@ -115,9 +115,6 @@ const switchTheme = ({
 toggleSwitch.addEventListener('change', switchTheme, false)
 let startIndex = 0
 const next = (subject) => {
-	if (startIndex < 0) {
-		startIndex = 0
-	}
 	startIndex += 6
 	if (startIndex >= 0) {
 		document.getElementById(`${subject}-prev`).style.display = 'inline-flex'
@@ -127,15 +124,13 @@ const next = (subject) => {
 	}
 }
 const prev = (subject) => {
-	if (startIndex < 0) {
+	startIndex -= 6
+	if (startIndex <= 0) {
 		startIndex = 0
+		drawChartBook(subject, startIndex)
+		document.getElementById(`${subject}-prev`).style.display = 'none'
 	} else {
-		startIndex -= 6
-	}
-	if (startIndex >= 0) {
 		document.getElementById(`${subject}-prev`).style.display = 'inline-flex'
 		drawChartBook(subject, startIndex)
-	} else {
-		document.getElementById(`${subject}-prev`).style.display = 'none'
 	}
 }
