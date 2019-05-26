@@ -28,11 +28,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--light-bg-color), rgba(0, 0, 0, 0));
+	background: var(--light-bg-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--secondary-color), rgba(0, 0, 0, 0));
+	background: var(--secondary-color);
 }
 
 ::placeholder {
@@ -324,6 +324,11 @@ article {
 .category:nth-child(3) {
 	background-color: #ff0000;
 	background-image: url("icons/Quantum-Gradient.svg");
+}
+
+.category:nth-child(4) {
+	background-color: #ff7700;
+	background-image: url("icons/Flat-Mountains.svg");
 }
 
 .list-book {

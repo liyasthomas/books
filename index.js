@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	drawChartBook('love')
 	drawChartBook('feminism')
 	drawChartBook('inspirational')
+	drawChartBook('authors')
 	drawChartBook('fiction')
 	drawChartBook('poetry')
 	drawChartBook('fantasy')
