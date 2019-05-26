@@ -317,18 +317,18 @@ article {
 }
 
 .category:nth-child(2) {
-	background-color: #ff9d00;
-	background-image: url("icons/Rainbow-Vortex.svg");
+	background-color: #ff0000;
+	background-image: url("icons/Cornered-Stairs.svg");
 }
 
 .category:nth-child(3) {
-	background-color: #ff0000;
-	background-image: url("icons/Quantum-Gradient.svg");
+	background-color: #ff7700;
+	background-image: url("icons/Flat-Mountains.svg");
 }
 
 .category:nth-child(4) {
-	background-color: #ff7700;
-	background-image: url("icons/Flat-Mountains.svg");
+	background-color: #ff0000;
+	background-image: url("icons/Quantum-Gradient.svg");
 }
 
 .list-book {
