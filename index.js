@@ -164,3 +164,9 @@ document.addEventListener('click', ({
 }, false);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+google.books.load();
+const initialize = () => {
+	var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+	viewer.load('ISBN:0738531367');
+}
+google.books.setOnLoadCallback(initialize);

@@ -49,6 +49,8 @@
 	<meta name="twitter:image" content="icons/icon-144x144.png">
 	<!-- Web Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,900&display=swap" rel="stylesheet">
+	<!-- Scripts -->
+	<script src="https://www.google.com/books/jsapi.js"></script>
 	<link rel="stylesheet" href="index.css">
 	<script>
 		if ("serviceWorker" in navigator) {
@@ -261,6 +263,7 @@
 						<div id="preview-authors" class="book-authors"></div>
 					</div>
 				</div>
+				<div id="viewerCanvas" style="width: 100%; height: calc(100% - 64px)"></div>
 			</div>
 		</div>
 	</main>
