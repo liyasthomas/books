@@ -19,7 +19,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
 		cbookContainer.innerHTML = cdata.items
 			.map(({
 				volumeInfo
-			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><img class='thumbnail' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 			.join('')
 	}
 }
@@ -38,7 +38,7 @@ const drawListBook = async () => {
 			bookContainer.innerHTML = data.items
 				.map(({
 					volumeInfo
-				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><img class='thumbnail' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover'></a><div class='book-info'><a class='link' href='${volumeInfo.infoLink}' target='_blank' rel='noopener' aria-label='View book'><h3 class='book-title'>${volumeInfo.title}</h3></a><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 				.join('')
 		}
 	} else {
@@ -135,3 +135,31 @@ const prev = (subject) => {
 		drawChartBook(subject, startIndex)
 	}
 }
+const modal = document.querySelector(".modal");
+const closeButton = document.querySelector(".close-button");
+const toggleModal = () => {
+	modal.classList.toggle("show-modal");
+}
+const windowOnClick = ({
+	target
+}) => {
+	if (target === modal) {
+		toggleModal();
+	}
+}
+const hasClass = ({
+	classList
+}, className) => {
+	return classList.contains(className);
+}
+document.addEventListener('click', ({
+	target
+}) => {
+	if (hasClass(target, 'trigger')) {
+		toggleModal()
+		document.getElementById('preview-title').textContent = target.dataset.title
+		document.getElementById('preview-authors').textContent = target.dataset.authors
+	}
+}, false);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
