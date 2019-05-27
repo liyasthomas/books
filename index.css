@@ -430,6 +430,7 @@ article {
 	visibility: hidden;
 	transform: scale(1.05);
 	transition: all .2s;
+	z-index: 99;
 }
 
 .show-modal {
@@ -472,13 +473,23 @@ article {
 	color: var(--font-color);
 }
 
+.book-details {
+	display: flex;
+}
+
+.book-cover {
+	height: 64px;
+	border-radius: 4px;
+	margin-right: 16px;
+}
+
 @media (max-width: 768px) {
 	aside {
 		position: sticky;
 		top: 0;
 		padding: 16px;
 		width: 100%;
-		z-index: 2;
+		z-index: 1;
 	}
 
 	nav {

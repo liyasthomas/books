@@ -19,7 +19,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
 		cbookContainer.innerHTML = cdata.items
 			.map(({
 				volumeInfo
-			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 			.join('')
 	}
 }
@@ -38,7 +38,7 @@ const drawListBook = async () => {
 			bookContainer.innerHTML = data.items
 				.map(({
 					volumeInfo
-				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.title}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 				.join('')
 		}
 	} else {
@@ -157,6 +157,7 @@ document.addEventListener('click', ({
 }) => {
 	if (hasClass(target, 'trigger')) {
 		toggleModal()
+		document.getElementById('preview-cover').src = target.dataset.cover
 		document.getElementById('preview-title').textContent = target.dataset.title
 		document.getElementById('preview-authors').textContent = target.dataset.authors
 	}
