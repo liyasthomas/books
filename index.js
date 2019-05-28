@@ -19,7 +19,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
 		cbookContainer.innerHTML = cdata.items
 			.map(({
 				volumeInfo
-			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.industryIdentifiers[0].identifier}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.industryIdentifiers[0].identifier}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a href='${volumeInfo.previewLink}' target='_blank'><img class='thumbnail' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover'></a><div class='book-info'><h3 class='book-title'><a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a></h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 			.join('')
 	}
 }
@@ -38,7 +38,7 @@ const drawListBook = async () => {
 			bookContainer.innerHTML = data.items
 				.map(({
 					volumeInfo
-				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><img class='thumbnail trigger' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.industryIdentifiers[0].identifier}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'><div class='book-info'><h3 class='book-title trigger' data-cover='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' data-isbn='${volumeInfo.industryIdentifiers[0].identifier}' data-title='${volumeInfo.title}' data-authors='${volumeInfo.authors}'>${volumeInfo.title}</h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
+				}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a href='${volumeInfo.previewLink}' target='_blank'><img class='thumbnail' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover'></a><div class='book-info'><h3 class='book-title'><a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a></h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
 				.join('')
 		}
 	} else {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	drawChartBook('fantasy')
 	drawChartBook('romance')
 })
-let mainNavLinks = document.querySelectorAll('.nav')
+let mainNavLinks = document.querySelectorAll('.scrolltoview')
 window.addEventListener('scroll', event => {
 	let fromTop = window.scrollY + 64
 	mainNavLinks.forEach(({
@@ -136,6 +136,7 @@ const prev = (subject) => {
 	}
 }
 const modal = document.querySelector('.modal')
+const trigger = document.querySelector('.trigger')
 const closeButton = document.querySelector('.close-button')
 const toggleModal = () => {
 	modal.classList.toggle('show-modal')
@@ -147,36 +148,6 @@ const windowOnClick = ({
 		toggleModal()
 	}
 }
-const hasClass = ({
-		classList
-	},
-	className
-) => classList.contains(className)
-
-document.addEventListener('click', ({
-	target
-}) => {
-	if (hasClass(target, 'trigger')) {
-		toggleModal()
-		document.getElementById('preview-cover').src = target.dataset.cover
-		document.getElementById('preview-title').textContent = target.dataset.title
-		document.getElementById('preview-authors').textContent = target.dataset.authors
-	}
-}, false)
+trigger.addEventListener('click', toggleModal)
 closeButton.addEventListener('click', toggleModal)
 window.addEventListener('click', windowOnClick)
-google.books.load('books', '0')
-const initialize = () => {
-	const display_options = {
-		showLinkChrome: false
-	}
-	const viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'), display_options)
-	viewer.load('ISBN:0738531367', bookNotFound, removePreviewFooter)
-}
-const bookNotFound = () => {
-	document.getElementById('viewerCanvas').innerHTML = '<h3>Oops! Preview not found for this book!</h3>'
-}
-const removePreviewFooter = () => {
-	document.querySelector('#viewerCanvas > div > div:nth-child(2)').style.display = 'none'
-}
-google.books.setOnLoadCallback(initialize)

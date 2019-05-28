@@ -22,7 +22,7 @@
 }
 
 ::-webkit-scrollbar {
-	width: 0;
+	width: 3PX;
 	height: 3px;
 	background: transparent;
 }
@@ -321,7 +321,7 @@ article {
 }
 
 .category:nth-child(2) {
-	background-color: #ff0000;
+	background-color: #ff66bb;
 	background-image: url("icons/Cornered-Stairs.svg");
 }
 
@@ -451,9 +451,10 @@ article {
 	transform: translate(-50%, -50%);
 	background-color: var(--bg-color);
 	padding: 32px;
-	width: 80%;
-	height: 90%;
-	border-radius: 16px;
+	min-width: 50%;
+	max-height: 80%;
+	border-radius: 8px;
+	overflow: auto;
 	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
 }
 
@@ -482,7 +483,6 @@ article {
 }
 
 .book-cover {
-	height: 64px;
 	border-radius: 4px;
 	margin-right: 16px;
 }

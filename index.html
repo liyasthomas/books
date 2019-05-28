@@ -50,7 +50,6 @@
 	<!-- Web Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,900&display=swap" rel="stylesheet">
 	<!-- Scripts -->
-	<script src="https://www.google.com/books/jsapi.js"></script>
 	<link rel="stylesheet" href="index.css">
 	<script>
 		if ("serviceWorker" in navigator) {
@@ -76,13 +75,14 @@
 		<nav>
 			<ul>
 				<li class="subhead">DISCOVER</li>
-				<li><a class="nav current" href="#search"><span class="icon">🔍</span>Search</a></li>
-				<li><a class="nav" href="#foryou"><span class="icon">💖</span>For you</a></li>
+				<li><a class="nav scrolltoview current" href="#search"><span class="icon">🔍</span>Search</a></li>
+				<li><a class="nav scrolltoview" href="#foryou"><span class="icon">💖</span>For you</a></li>
 				<li class="subhead">LIBRARY</li>
-				<li><a class="nav" href="#fiction"><span class="icon">👽</span>Fiction</a></li>
-				<li><a class="nav" href="#poetry"><span class="icon">🌈</span>Poetry</a></li>
-				<li><a class="nav" href="#fantasy"><span class="icon">🌺</span>Fantasy</a></li>
-				<li><a class="nav" href="#romance"><span class="icon">💕</span>Romance</a></li>
+				<li><a class="nav scrolltoview" href="#fiction"><span class="icon">👽</span>Fiction</a></li>
+				<li><a class="nav scrolltoview" href="#poetry"><span class="icon">🌈</span>Poetry</a></li>
+				<li><a class="nav scrolltoview" href="#fantasy"><span class="icon">🌺</span>Fantasy</a></li>
+				<li><a class="nav scrolltoview" href="#romance"><span class="icon">💕</span>Romance</a></li>
+				<li class="nav trigger"><span class="icon">✨</span>More</li>
 			</ul>
 		</nav>
 		<div class="spacer"></div>
@@ -256,14 +256,53 @@
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close-button">✖</span>
-				<div class="book-details">
-					<img id="preview-cover" class="book-cover" src="" alt="Cover">
-					<div class="book-info">
-						<h3 id="preview-title" class="book-title"></h3>
-						<div id="preview-authors" class="book-authors"></div>
-					</div>
+				<h3>More</h3>
+				<div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Religion</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Biographies</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Memoirs</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Business</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Investing</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Children</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Cooking</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Food</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Wine</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Engineering</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Fiction</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Literature</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Health</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Mind</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Body</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>History</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Religion</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Spirituality</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Romance</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Audiobooks</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Arts</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Entertainment</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Mystery</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Thrillers</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Science</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Technology</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Self-help</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Sports</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Travel</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Young</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Adult</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Comics</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>General</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Anthologies</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Contemporary</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Women</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Crime</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Fantasy</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Horror</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Literary</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Manga</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Media</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Nonfiction</div>
+					<div class='book-authors' onclick='updateFilter(this,"subject");toggleModal();'>Superheroes</div>
 				</div>
-				<div id="viewerCanvas" style="width: 100%; height: calc(100% - 64px)"></div>
 			</div>
 		</div>
 	</main>
