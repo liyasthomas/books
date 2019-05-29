@@ -32,9 +32,11 @@ When I wrote this, only God and I understood what I was doing. Now, only God kno
 
 :electric_plug: **Real-time demo**: Search books by name, author, genre etc...
 
-:zap: **Copy color codes to the clipboard**: Click on any book to view in Google Play Books!
+:zap: **Copy color codes to the clipboard**: Click on any book to read it in Google Play Books!
 
 :sparkles: **Choose custom colors**: Instant search results
+
+:last_quarter_moon: **Turn off the lights!**: Dark mode to soothe your eyes
 
 ---
 
@@ -42,11 +44,10 @@ When I wrote this, only God and I understood what I was doing. Now, only God kno
 
 [https://liyasthomas.github.io/books](https://liyasthomas.github.io/books)
 
-1. Pick a color
-2. View demo
-3. Copy color codes
-
-You're done!
+* Search books by name, author, genre and etc...
+* Collection of curated books just for you!
+* Fiction, poetry, fantacy, romancs and many more!
+* At night, turn off the lights!
 
 ---
 
