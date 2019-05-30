@@ -22,7 +22,7 @@
 }
 
 ::-webkit-scrollbar {
-	width: 3PX;
+	width: 3px;
 	height: 3px;
 	background: transparent;
 }
@@ -429,7 +429,7 @@ article {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, .5);
 	opacity: 0;
 	visibility: hidden;
 	transform: scale(1.05);
@@ -450,16 +450,23 @@ article {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: var(--bg-color);
-	padding: 32px;
-	min-width: 50%;
+	padding: 16px 32px;
 	max-height: 80%;
+	max-width: 50%;
 	border-radius: 8px;
 	overflow: auto;
 	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
 }
 
+.fixed {
+	position: fixed;
+	top: 10%;
+	left: 5%;
+	width: 90%;
+}
+
 .close-button {
-	position: absolute;
+	position: fixed;
 	right: 16px;
 	top: 16px;
 	display: inline-flex;
@@ -490,14 +497,9 @@ article {
 @media (max-width: 768px) {
 	aside {
 		position: sticky;
-		top: 0;
-		padding: 16px;
+		height: auto;
 		width: 100%;
-		z-index: 1;
-	}
-
-	nav {
-		display: none;
+		padding: 16px;
 	}
 
 	article {
