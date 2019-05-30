@@ -8,7 +8,7 @@ const getBooks = async book => {
 const drawChartBook = async (subject, startIndex = 0) => {
 	let cbookContainer = document.querySelector(`.${subject}`)
 	cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`
-	const cdata = await getBooks(`subject:${subject}&startIndex=${startIndex}&maxResults=6&orderBy=newest`)
+	const cdata = await getBooks(`subject:${subject}&startIndex=${startIndex}&maxResults=6`)
 	if (cdata.error) {
 		cbookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`
 	} else if (cdata.totalItems == 0) {
