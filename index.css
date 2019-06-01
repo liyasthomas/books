@@ -19,6 +19,7 @@
 	outline: 0;
 	border: 0;
 	font-family: Montserrat, 'Roboto', 'Noto', sans-serif;
+	transition: all .2s;
 }
 
 ::-webkit-scrollbar {
@@ -229,9 +230,29 @@ article {
 }
 
 .results {
+	position: relative;
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
+}
+
+.fade {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	width: 32px;
+	transition: all .2s;
+}
+
+.left {
+	background: linear-gradient(to right, var(--bg-color), transparent);
+	left: 0;
+}
+
+.right {
+	background: linear-gradient(to left, var(--bg-color), transparent);
+	right: 0;
 }
 
 .flex {

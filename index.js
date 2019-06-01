@@ -17,6 +17,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
 		cbookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`
 	} else {
 		cbookContainer.innerHTML = cdata.items
+		cbookContainer.innerHTML = cdata.items
 			.map(({
 				volumeInfo
 			}) => `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'><a href='${volumeInfo.previewLink}' target='_blank'><img class='thumbnail' src='` + (volumeInfo.imageLinks.thumbnail === undefined ? 'icons/logo.svg' : volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')) + `' alt='cover'></a><div class='book-info'><h3 class='book-title'><a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a></h3><div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.authors}</div><div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` + (volumeInfo.categories === undefined ? 'Others' : volumeInfo.categories) + `</div></div></div>`)
@@ -66,9 +67,7 @@ const updateFilter = ({
 const debounce = (fn, time, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(drawListBook, time))
 }
-searchBooks.addEventListener('input', () => {
-	debounce(drawListBook, 1000)
-})
+searchBooks.addEventListener('input', () => debounce(drawListBook, 1000))
 document.addEventListener('DOMContentLoaded', () => {
 	drawChartBook('love')
 	drawChartBook('feminism')
@@ -94,15 +93,7 @@ window.addEventListener('scroll', event => {
 		}
 	})
 })
-const getRandomColor = () => {
-	let letters = '0123456789ABCDEF'
-	let color = '#'
-	for (let i = 0; i < 6; i++) {
-		color += letters[Math.floor(Math.random() * 16)]
-	}
-	color += '40'
-	return color
-}
+const getRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}40`
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
 const switchTheme = ({
 	target
@@ -138,9 +129,7 @@ const prev = (subject) => {
 const modal = document.querySelector('.modal')
 const trigger = document.querySelector('.trigger')
 const closeButton = document.querySelector('.close-button')
-const toggleModal = () => {
-	modal.classList.toggle('show-modal')
-}
+const toggleModal = () => modal.classList.toggle('show-modal')
 const windowOnClick = ({
 	target
 }) => {
