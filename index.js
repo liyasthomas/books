@@ -95,13 +95,28 @@ window.addEventListener('scroll', event => {
 })
 const getRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}40`
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
+if (localStorage.getItem('marcdownTheme') == 'dark') {
+	document.documentElement.setAttribute('data-theme', 'dark')
+	document.querySelector('meta[name=theme-color]').setAttribute('content', '#090b28')
+	toggleSwitch.checked = true
+	localStorage.setItem('marcdownTheme', 'dark')
+} else {
+	document.documentElement.setAttribute('data-theme', 'light')
+	document.querySelector('meta[name=theme-color]').setAttribute('content', '#ffffff')
+	toggleSwitch.checked = false
+	localStorage.setItem('marcdownTheme', 'light')
+}
 const switchTheme = ({
 	target
 }) => {
 	if (target.checked) {
 		document.documentElement.setAttribute('data-theme', 'dark')
+		document.querySelector('meta[name=theme-color]').setAttribute('content', '#090b28')
+		localStorage.setItem('marcdownTheme', 'dark')
 	} else {
 		document.documentElement.setAttribute('data-theme', 'light')
+		document.querySelector('meta[name=theme-color]').setAttribute('content', '#ffffff')
+		localStorage.setItem('marcdownTheme', 'light')
 	}
 }
 toggleSwitch.addEventListener('change', switchTheme, false)
