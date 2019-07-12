@@ -30,11 +30,9 @@ When I wrote this, only God and I understood what I was doing. Now, only God kno
 
 :heart: **Lightweight and minimal**: Crafted with minimalistic UI design
 
-:electric_plug: **Real-time demo**: Search books by name, author, genre etc...
+:electric_plug: **Real-time search**: Search books by name, author, genre etc...
 
-:zap: **Copy color codes to the clipboard**: Click on any book to read it in Google Play Books!
-
-:sparkles: **Choose custom colors**: Instant search results
+:zap: **Instant reading**: Click on any book to read it in Google Play Books!
 
 :last_quarter_moon: **Turn off the lights!**: Dark mode to soothe your eyes
 
