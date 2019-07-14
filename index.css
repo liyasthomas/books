@@ -153,11 +153,11 @@ aside {
 .nav.current {
 	color: var(--bg-color);
 	background: var(--primary-color);
-	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .4));
+	box-shadow: 0 3px 4px rgba(0, 0, 0, .4);
 }
 
 .nav:hover {
-	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
 }
 
 .spacer {
@@ -325,14 +325,14 @@ article {
 	margin: 16px;
 	color: #fff;
 	border-radius: 16px;
-	filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 	background-size: cover;
 	background-position: center center;
 	transition: all .2s;
 }
 
 .category:hover {
-	filter: drop-shadow(0 16px 16px rgba(0, 0, 0, .4));
+	box-shadow: 0 8px 16px rgba(0, 0, 0, .4);
 }
 
 .category:nth-child(1) {
@@ -392,14 +392,14 @@ article {
 	border-radius: 16px;
 	margin-right: 32px;
 	animation: zoomin .5s;
-	filter: brightness(110%) contrast(110%) drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 	transform: translate(0, -64px);
 	transition: all .2s;
 }
 
 .thumbnail:hover {
 	transform: translate(0, -64px) scale(1.1);
-	filter: brightness(110%) contrast(110%) drop-shadow(0 8px 8px rgba(0, 0, 0, .4));
+	box-shadow: 0 6px 8px rgba(0, 0, 0, .4);
 }
 
 .book-title {
@@ -475,7 +475,7 @@ article {
 	max-width: 50%;
 	border-radius: 8px;
 	overflow: auto;
-	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2));
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 }
 
 .fixed {
