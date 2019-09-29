@@ -21,6 +21,8 @@ const drawChartBook = async (subject, startIndex = 0) => {
 		cbookContainer.innerHTML = `<div class='prompt'>ツ No results, try a different term!</div>`
 	} else if (cdata.totalItems == undefined) {
 		cbookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`
+	} else if (!cdata.items || cdata.items.length == 0) {
+		cbookContainer.innerHTML = `<div class='prompt'>ツ There is no more result!</div>`
 	} else {
 		cbookContainer.innerHTML = cdata.items
 		cbookContainer.innerHTML = cdata.items
