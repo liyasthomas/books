@@ -1,19 +1,4 @@
-```
-When I wrote this, only God and I understood what I was doing. Now, only God knows.
-```
-<div align="center">
-  <a href="https://liyas-thomas.firebaseapp.com"><img src="https://raw.githubusercontent.com/liyasthomas/templates/master/assets/logo.gif" alt="Liyas Thomas" width="200"></a>
-  <br>
-  <h1>Liyas Thomas</h1>
-  <sub>Built with ❤︎ by
-  <a href="https://github.com/liyasthomas">liyasthomas</a> and
-  <a href="https://github.com/liyasthomas/books/graphs/contributors">contributors</a>
-	</sub>
-</div>
-
----
-
-[![Build Status](https://travis-ci.org/liyasthomas/books.svg?branch=master)](https://travis-ci.org/liyasthomas/books) [![GitHub release](https://img.shields.io/github/release/liyasthomas/books/all.svg)](https://github.com/liyasthomas/books/releases/latest) [![repo size](https://img.shields.io/github/repo-size/liyasthomas/books.svg)](https://github.com/liyasthomas/books/archive/master.zip) [![license](https://img.shields.io/github/license/liyasthomas/books.svg)](https://github.com/liyasthomas/books/blob/master/LICENSE) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/liyasthomas/books/issues) [![Website](https://img.shields.io/website-up-down-green-red/https/shields.io.svg?label=website)](https://liyas-thomas.firebaseapp.com) [![Donate](https://img.shields.io/badge/$-donate-ff69b4.svg)](https://www.paypal.me/liyascthomas)
+[![Build Status](https://travis-ci.com/liyasthomas/books.svg?branch=master)](https://travis-ci.com/liyasthomas/books) [![GitHub release](https://img.shields.io/github/release/liyasthomas/books/all.svg)](https://github.com/liyasthomas/books/releases/latest) [![repo size](https://img.shields.io/github/repo-size/liyasthomas/books.svg)](https://github.com/liyasthomas/books/archive/master.zip) [![license](https://img.shields.io/github/license/liyasthomas/books.svg)](https://github.com/liyasthomas/books/blob/master/LICENSE) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/liyasthomas/books/issues) [![Website](https://img.shields.io/website-up-down-green-red/https/shields.io.svg?label=website)](https://liyas-thomas.firebaseapp.com) [![Donate](https://img.shields.io/badge/$-donate-ff69b4.svg)](https://www.paypal.me/liyascthomas)
 
 # <img src="icons/icon-48x48.png" alt="books" width="32"> Books
 
@@ -66,7 +51,7 @@ Please read [CONTRIBUTING](CONTRIBUTING.md) for details on our [CODE OF CONDUCT]
 
 ## Continuous Integration
 
-We use [Travis CI](https://travis-ci.com) for continuous integration. Check out our [Travis CI Status](https://travis-ci.org/liyasthomas/books).
+We use [Travis CI](https://travis-ci.com) for continuous integration. Check out our [Travis CI Status](https://travis-ci.com/liyasthomas/books).
 
 ---
 
@@ -86,12 +71,6 @@ See the [CHANGELOG](CHANGELOG.md) file for details.
 
 ### Lead Developers
 * [**Liyas Thomas**](https://github.com/liyasthomas) - *Author*
-
-### Testing and Debugging
-* [Liyas Thomas](https://github.com/liyasthomas)
-
-### Contributors
-* [Liyas Thomas](https://github.com/liyasthomas)
 
 ### Thanks
 * [StackOverflow](https://stackoverflow.com)
